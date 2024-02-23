@@ -55,6 +55,28 @@ button {
 }
 
 .nav li a {
+position: relative;
+}
+
+.nav li::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom:-2px;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right ;
+    transition: transform 0.25 ease-out;
+}
+
+.nav li a:hover a::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav li a {
     text-decoration: none;
     color: #fff;
     font-size: 16px;
@@ -168,6 +190,7 @@ button {
 .active svg g path {
     fill: #fff;
 }
+
 
 .cards-grid {
     display: grid;
@@ -327,6 +350,19 @@ button {
     align-items: center;
     gap: 30px;
 }
+.pagination__item{
+    display: none;
+}
+.pagination__item:nth-child(1),
+.pagination__item:nth-child(2),
+.pagination__item:nth-child(3){
+    display: block;
+}
+
+.pagination__item-active button {
+    opacity: 1;
+}
+
 
 .pagination-wrapper {
     justify-content: center;
@@ -379,6 +415,15 @@ button {
 .social-links {
     display: flex;
     gap: 30px;
+}
+
+.social-links a:hover svg {
+    background:#FFF;
+    border-radius: 50%
+}
+
+.social-links a:hover svg g path{
+    fill: #8c4ca3c8;
 }
 
 .footer-bottom * {
